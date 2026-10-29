@@ -39,7 +39,8 @@ Everyone in one game needs the same build.
 If nobody can join the host:
 
 - Allow the game through the firewall when Windows or macOS asks. On Linux with ufw, run
-  `sudo ufw allow 24680/udp`.
+  `sudo ufw allow 24680/udp`, plus `sudo ufw allow proto udp from <router IP> port 1900` so the
+  router's UPnP reply gets through (otherwise the lobby says no UPnP router answered).
 - If the lobby says the router didn't open the port, forward UDP 24680 to the host PC in the
   router settings, or everyone installs [Tailscale](https://tailscale.com) and joins the host's
   Tailscale address.
